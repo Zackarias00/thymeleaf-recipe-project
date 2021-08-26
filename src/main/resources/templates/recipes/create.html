@@ -5,7 +5,7 @@
 
 <header th:replace="fragments :: header"></header>
 
-
+<!--TODO make the inputs do what they're supposed to do -->
 <form method="post" action="/recipes/create">
     <div class="form-group">
         <label>Name
@@ -13,12 +13,28 @@
         </label>
         <p class="error" th:errors="${recipe.name}"></p>
     </div>
+
+    <div class="form-group">
+        <label>Ingredients
+            <input th:field="${recipe.name}" class="form-control">
+        </label>
+        <p class="error" th:errors="${recipe.name}"></p>
+    </div>
+
+    <div class="form-group">
+        <label>Directions
+            <input th:field="${recipe.name}" class="form-control">
+        </label>
+        <p class="error" th:errors="${recipe.name}"></p>
+    </div>
+
     <div class="form-group">
         <label>Description
             <input th:field="${recipe.recipeDescription.description}" class="form-control">
         </label>
         <p class="error" th:errors="${recipe.recipeDescription.description}"></p>
     </div>
+
     <div class="form-group">
         <label>Category
             <select th:field="${recipe.recipeCategory}">
@@ -30,6 +46,9 @@
             </select>
             <p class="error" th:errors="${recipe.recipeCategory}"></p>
         </label>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Upload Image" class="btn btn-success">
     </div>
     <div class="form-group">
         <input type="submit" value="Add Recipe" class="btn btn-success">
