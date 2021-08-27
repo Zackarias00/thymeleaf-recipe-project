@@ -1,13 +1,12 @@
 package com.liftoff.thymeleafrecipeproject.demo.models;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Recipe extends AbstractEntity {
@@ -19,6 +18,14 @@ public class Recipe extends AbstractEntity {
     @OneToOne(cascade = CascadeType.ALL)
     @Valid
     private RecipeDescription recipeDescription;
+
+    @OneToMany(mappedBy = "recipe")
+    @NotNull
+    private final List<Ingredients> ingredients = new ArrayList<>();
+
+    @OneToMany(mappedBy = "recipe")
+    @NotNull
+    private final List<Directions> directions = new ArrayList<>();
 
     @ManyToOne
     @NotNull(message="Category is required")
