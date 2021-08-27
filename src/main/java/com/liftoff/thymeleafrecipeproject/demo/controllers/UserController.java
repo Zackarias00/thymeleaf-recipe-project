@@ -17,7 +17,6 @@ public class UserController {
 
     @GetMapping
     public String displayProfilePage(Model model){
-        model.addAttribute("title","My Profile");
         return "profile";
     }
 }

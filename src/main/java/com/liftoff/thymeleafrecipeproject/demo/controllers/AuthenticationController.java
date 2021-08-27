@@ -50,7 +50,6 @@ public class AuthenticationController {
     @GetMapping("/register")
     public String displayRegistrationForm(Model model){
         model.addAttribute(new RegisterFormDTO());
-        model.addAttribute("title","Register");
         return "register";
     }
 
@@ -59,7 +58,7 @@ public class AuthenticationController {
 
 
         if(errors.hasErrors()){
-            model.addAttribute("title","Register");
+
             return "register";
         }
 
@@ -67,7 +66,6 @@ public class AuthenticationController {
 
         if(existingUser != null){
             errors.rejectValue("username","username.alreadyExists", "A user with that username already exists");
-            model.addAttribute("title","Register");
             return "register";
         }
 
@@ -75,7 +73,6 @@ public class AuthenticationController {
         String verifyPassword = registerFormDTO.getVerifyPassword();
         if(!password.equals(verifyPassword)){
             errors.rejectValue("password", "passwords.mismatch", "Passwords do not match");
-            model.addAttribute("title", "Register");
             return "register";
         }
 
@@ -89,14 +86,12 @@ public class AuthenticationController {
     @GetMapping("/login")
     public String displayLoginForm(Model model){
         model.addAttribute(new LoginFormDTO());
-        model.addAttribute("title", "Log In");
         return "login";
     }
 
     @PostMapping("/login")
     public String processLoginForm(@ModelAttribute @Valid LoginFormDTO loginFormDTO, Errors errors, HttpServletRequest request, Model model){
         if(errors.hasErrors()){
-            model.addAttribute("title", "Log In");
             return "login";
         }
 
@@ -104,7 +99,6 @@ public class AuthenticationController {
 
         if(theUser == null){
             errors.rejectValue("username", "user.invalid", "The given username does not exist.");
-            model.addAttribute("title","Log In");
             return "login";
         }
 
@@ -112,7 +106,6 @@ public class AuthenticationController {
 
         if(!theUser.isMatchingPassword(password)){
             errors.rejectValue("password","password.invalid","Invalid password");
-            model.addAttribute("title", "Log In");
             return "login";
         }
 
