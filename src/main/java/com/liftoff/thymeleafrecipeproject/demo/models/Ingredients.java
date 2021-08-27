@@ -8,8 +8,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-@Entity(name="Ingredients")
-@Table(name="ingredients")
+@Entity
 public class Ingredients extends AbstractEntity {
 
     @NotBlank
@@ -18,7 +17,7 @@ public class Ingredients extends AbstractEntity {
     @OneToOne(mappedBy = "recipeIngredients")
     private Recipe recipe;
 
-    public Ingredients(@NotNull String ingredients){
+    public Ingredients(@NotBlank String ingredients){
         this.ingredients = ingredients;
     }
 

@@ -13,7 +13,7 @@ public class Directions extends AbstractEntity {
     @OneToOne(mappedBy = "recipeDirections")
     private Recipe recipe;
 
-    public Directions(@NotNull String directions){
+    public Directions(@NotBlank String directions){
         this.directions = directions;
     }
 

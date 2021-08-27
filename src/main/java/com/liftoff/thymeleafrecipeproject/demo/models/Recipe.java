@@ -35,10 +35,12 @@ public class Recipe extends AbstractEntity {
     @OneToOne
     private Image image;
 
-    public Recipe(String name, RecipeCategory recipeCategory, RecipeDescription recipeDescription){
+    public Recipe(String name, RecipeCategory recipeCategory, RecipeDescription recipeDescription, Ingredients recipeIngredients, Directions recipeDirections){
         this.name = name;
         this.recipeCategory = recipeCategory;
         this.recipeDescription = recipeDescription;
+        this.recipeIngredients = recipeIngredients;
+        this.recipeDirections = recipeDirections;
     }
 
     public Recipe(){}
