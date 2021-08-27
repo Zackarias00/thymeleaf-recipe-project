@@ -28,16 +28,16 @@
 
                     <div class="form-group">
                         <label>Ingredients:
-                            <input th:field="${recipe.name}" class="form-control">
+                            <input th:field="${recipe.recipeIngredients}" class="form-control">
                         </label>
-                        <p class="error" th:errors="${recipe.name}"></p>
+                        <p class="error" th:errors="${recipe.recipeIngredients}"></p>
                     </div>
 
                     <div class="form-group">
                         <label>Directions:
-                            <input th:field="${recipe.name}" class="form-control">
+                            <input th:field="${recipe.recipeDirections}" class="form-control">
                         </label>
-                        <p class="error" th:errors="${recipe.name}"></p>
+                        <p class="error" th:errors="${recipe.recipeDirections}"></p>
                     </div>
 
                     <div class="form-group">
