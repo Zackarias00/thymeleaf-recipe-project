@@ -4,6 +4,7 @@ package com.liftoff.thymeleafrecipeproject.demo.models;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -11,10 +12,10 @@ import javax.validation.constraints.Size;
 @Table(name="ingredients")
 public class Ingredients extends AbstractEntity {
 
-    @NotNull
+    @NotBlank
     private String ingredients;
 
-    @ManyToOne
+    @OneToOne(mappedBy = "recipeIngredients")
     private Recipe recipe;
 
     public Ingredients(@NotNull String ingredients){
