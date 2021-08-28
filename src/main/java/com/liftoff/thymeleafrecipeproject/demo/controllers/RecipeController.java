@@ -24,6 +24,8 @@ public class RecipeController {
     @Autowired
     private RecipeCategoryRepository recipeCategoryRepository;
 
+
+
     @GetMapping
     public String displayRecipes(@RequestParam(required=false) Integer categoryId, Model model){
         if(categoryId==null){
@@ -53,7 +55,6 @@ public class RecipeController {
         if(errors.hasErrors()){
             return "recipes/create";
         }
-
         recipeRepository.save(newRecipe);
         return "redirect:";
     }

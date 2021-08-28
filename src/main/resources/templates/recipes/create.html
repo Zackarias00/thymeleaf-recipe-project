@@ -28,21 +28,21 @@
 
                     <div class="form-group">
                         <label>Ingredients:
-                            <input th:field="${recipe.name}" class="form-control">
+                            <input th:field="${recipe.recipeIngredients}" class="form-control">
                         </label>
-                        <p class="error" th:errors="${recipe.name}"></p>
+                        <p class="error" th:errors="${recipe.recipeIngredients}"></p>
                     </div>
 
                     <div class="form-group">
                         <label>Directions:
-                            <input th:field="${recipe.name}" class="form-control">
+                            <input th:field="${recipe.recipeDirections}" class="form-control">
                         </label>
-                        <p class="error" th:errors="${recipe.name}"></p>
+                        <p class="error" th:errors="${recipe.recipeDirections}"></p>
                     </div>
 
                     <div class="form-group">
                         <label>Description:
-                            <input th:field="${recipe.recipeDescription.description}" class="form-control">
+                            <input th:field="${recipe.recipeDescription.description}" class="form-control"></input>
                         </label>
                         <p class="error" th:errors="${recipe.recipeDescription.description}"></p>
                     </div>
@@ -84,28 +84,24 @@
         </label>
         <p class="error" th:errors="${recipe.name}"></p>
     </div>
-
     <div class="form-group">
         <label>Ingredients:
-            <textarea th:field="${recipe.name}" class="form-control"></input>
+            <textarea th:field="${recipe.name}" class="form-control"></textarea>
         </label>
         <p class="error" th:errors="${recipe.name}"></p>
     </div>
-
     <div class="form-group">
         <label>Directions:
             <textarea th:field="${recipe.name}" class="form-control"></textarea>
         </label>
         <p class="error" th:errors="${recipe.name}"></p>
     </div>
-
     <div class="form-group">
         <label>Description:
             <textarea th:field="${recipe.recipeDescription.description}" class="form-control"></textarea>
         </label>
         <p class="error" th:errors="${recipe.recipeDescription.description}"></p>
     </div>
-
     <div class="form-group">
         <label>Category:
             <select th:field="${recipe.recipeCategory}">
@@ -113,7 +109,6 @@
                         th:value="${recipeCategory.id}"
                         th:text="${recipeCategory.name}">
                 </option>
-
             </select>
             <p class="error" th:errors="${recipe.recipeCategory}"></p>
         </label>

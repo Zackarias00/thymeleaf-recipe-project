@@ -1,19 +1,19 @@
 package com.liftoff.thymeleafrecipeproject.demo.models;
 
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 @Entity
 public class Directions extends AbstractEntity {
 
-    @NotNull
+    @NotBlank
     private String directions;
 
-    @ManyToOne
+    @OneToOne(mappedBy = "recipeDirections")
     private Recipe recipe;
 
-    public Directions(@NotNull String directions){
+    public Directions(@NotBlank String directions){
         this.directions = directions;
     }
 
