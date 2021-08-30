@@ -32,15 +32,16 @@ public class Recipe extends AbstractEntity {
     @NotNull(message="Category is required")
     private RecipeCategory recipeCategory;
 
-    @OneToOne
-    private Image image;
+    @OneToOne(cascade = CascadeType.ALL)
+    private Image recipeImage;
 
-    public Recipe(String name, RecipeCategory recipeCategory, RecipeDescription recipeDescription, Ingredients recipeIngredients, Directions recipeDirections){
+    public Recipe(String name, RecipeCategory recipeCategory, RecipeDescription recipeDescription, Ingredients recipeIngredients, Directions recipeDirections, Image recipeImage){
         this.name = name;
         this.recipeCategory = recipeCategory;
         this.recipeDescription = recipeDescription;
         this.recipeIngredients = recipeIngredients;
         this.recipeDirections = recipeDirections;
+        this.recipeImage = recipeImage;
     }
 
     public Recipe(){}
@@ -86,12 +87,12 @@ public class Recipe extends AbstractEntity {
         this.recipeDirections = recipeDirections;
     }
 
-    public Image getImage() {
-        return image;
+    public Image getRecipeImage() {
+        return recipeImage;
     }
 
-    public void setImage(Image image) {
-        this.image = image;
+    public void setRecipeImage(Image recipeImage) {
+        this.recipeImage = recipeImage;
     }
 
     @Override

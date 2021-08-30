@@ -64,7 +64,7 @@
  <div th:fragment="recipe-card">
      <div th:each="recipe : ${recipes}">
          <div class="image_container">
-             <a class="image" href="'/details?recipeId=' + ${recipe.id}" th:text="${recipe.name}"></a>
+             <img class="image" th:src="${recipe.recipeImage}">
          </div>
          <div class="details-container">
              <div class="link-container">

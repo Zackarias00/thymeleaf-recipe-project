@@ -1,8 +1,10 @@
 package com.liftoff.thymeleafrecipeproject.demo.controllers;
 
 
+import com.liftoff.thymeleafrecipeproject.demo.data.ImageRepository;
 import com.liftoff.thymeleafrecipeproject.demo.data.RecipeCategoryRepository;
 import com.liftoff.thymeleafrecipeproject.demo.data.RecipeRepository;
+import com.liftoff.thymeleafrecipeproject.demo.models.Image;
 import com.liftoff.thymeleafrecipeproject.demo.models.Recipe;
 import com.liftoff.thymeleafrecipeproject.demo.models.RecipeCategory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +26,8 @@ public class RecipeController {
     @Autowired
     private RecipeCategoryRepository recipeCategoryRepository;
 
-
+    @Autowired
+    private ImageRepository imageRepository;
 
     @GetMapping
     public String displayRecipes(@RequestParam(required=false) Integer categoryId, Model model){
