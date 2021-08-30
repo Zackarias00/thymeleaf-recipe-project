@@ -7,12 +7,12 @@
 
 <!--TODO make the inputs do what they're supposed to do -->
 
-<!-- Modal -->
-<div class="modal fade" id="create" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- Create Recipe Modal -->
+<div class="modal fade" id="create" tabindex="-1" role="form" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Create Recipe</h5>
+                <h5 class="modal-title" id="create_recipe_header">Create Recipe</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -68,10 +68,6 @@
                 </form>
 
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
         </div>
     </div>
 </div>
@@ -84,28 +80,24 @@
         </label>
         <p class="error" th:errors="${recipe.name}"></p>
     </div>
-
     <div class="form-group">
         <label>Ingredients:
             <textarea th:field="${recipe.name}" class="form-control"></textarea>
         </label>
         <p class="error" th:errors="${recipe.name}"></p>
     </div>
-
     <div class="form-group">
         <label>Directions:
             <textarea th:field="${recipe.name}" class="form-control"></textarea>
         </label>
         <p class="error" th:errors="${recipe.name}"></p>
     </div>
-
     <div class="form-group">
         <label>Description:
             <textarea th:field="${recipe.recipeDescription.description}" class="form-control"></textarea>
         </label>
         <p class="error" th:errors="${recipe.recipeDescription.description}"></p>
     </div>
-
     <div class="form-group">
         <label>Category:
             <select th:field="${recipe.recipeCategory}">
@@ -113,7 +105,6 @@
                         th:value="${recipeCategory.id}"
                         th:text="${recipeCategory.name}">
                 </option>
-
             </select>
             <p class="error" th:errors="${recipe.recipeCategory}"></p>
         </label>
