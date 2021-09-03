@@ -8,9 +8,13 @@
     <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    <script src="script.js"></script>
+
 
 
 </head>
@@ -50,11 +54,11 @@
 
             <ul class="nav navbar-nav navbar-right">
                 <!-- Login Modal Link -->
-                <li class="nav-item"><a class="nav-link" href="#login" data-toggle="modal" data-target="#login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                <li id="loginButton" class="nav-item"><a class="nav-link" href="#login" data-toggle="modal" data-target="#login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                 <!-- Register Modal Link -->
-                <li class="nav-item"><a class="nav-link" href="#register" data-toggle="modal" data-target="#register"><span class="glyphicon glyphicon-ok"></span> Register</a></li>
+                <li id="registerButton" class="nav-item"><a class="nav-link" href="#register" data-toggle="modal" data-target="#register"><span class="glyphicon glyphicon-ok"></span> Register</a></li>
                 <!--Profile Dropdown-->
-                <li class="nav-item">
+                <li id="profileButton" class="nav-item hidden">
                     <div class="dropdown">
                         <button class="btn navbar-btn btn-link dropdown-toggle" type="button" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> Profile
                             <span class="caret"></span></button>
