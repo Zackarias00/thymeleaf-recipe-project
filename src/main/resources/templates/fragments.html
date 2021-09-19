@@ -8,12 +8,13 @@
     <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" href="styles.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
 
     <script src="script.js"></script>
+
 
 
 
@@ -33,7 +34,7 @@
             <ul class="nav navbar-nav">
 
                 <!-- Button to trigger create recipe modal -->
-                <button id="createRecipeButton" type="button" class="btn btn-primary navbar-btn hidden" data-toggle="modal" data-target="#create">
+                <button id="createRecipeButton" type="button" class="btn btn-primary navbar-btn " data-toggle="modal" data-target="#create">
                     Create Recipe
                 </button>
 
@@ -83,20 +84,20 @@
  </header>
 
  <div th:fragment="recipe-card">
-     <div th:each="recipe : ${recipes}">
+     <div th:each="recipe : ${recipes}" class="col-xs-5 col-md-4">
          <div class="image_container">
-             <img class="image" th:src="${recipe.recipeImage}">
+             <div class="thumbnail">
+                <img class="image" th:src="${recipe.recipeImage}">
+                <div class="caption">
+                    <h3 th:text="${recipe.name}"></h3>
+                </div>
+             </div>
          </div>
          <div class="details-container">
-             <div class="link-container">
-                 <a class="link" href="'/details?recipeId=' + ${recipe.id}" th:text="${recipe.name}"></a>
-             </div>
              <div class="favorite-button">
 
              </div>
-             <div class="summary" th:text="${recipe.recipeDescription.description}">
 
-             </div>
          </div>
      </div>
  </div>
