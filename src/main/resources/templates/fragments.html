@@ -86,12 +86,12 @@
  <div th:fragment="recipe-card">
      <div th:each="recipe : ${recipes}" class="col-xs-5 col-md-4">
          <div class="image_container">
-             <div class="thumbnail">
+             <a href="#recipeModal" data-toggle="modal" data-target="#recipeModal" class="thumbnail">
                 <img class="image" th:src="${recipe.recipeImage}">
                 <div class="caption">
                     <h3 th:text="${recipe.name}"></h3>
                 </div>
-             </div>
+             </a>
          </div>
          <div class="details-container">
              <div class="favorite-button">
