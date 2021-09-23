@@ -3,7 +3,11 @@
 <head th:replace="fragments :: head"></head>
 <body class="container">
 
-<header th:replace="fragments :: header"></header>
+<nav th:replace="fragments :: header"></nav>
+
+<script>
+    $(document).ready(function(){ $('#register').modal('show'); });
+</script>
 
 <!-- Create Register Modal -->
 <div class="modal fade" id="register" tabindex="-1" role="form" aria-hidden="true">
@@ -11,7 +15,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="register_header">Register</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button id="registerClose" type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -35,7 +39,7 @@
                         </label>
                     </div>
 
-                    <input type="submit" class="btn btn-primary" value="Register" />
+                    <input id="registerSubmit" type="submit" class="btn btn-primary" value="Register" />
                 </form>
 
             </div>
@@ -43,29 +47,15 @@
     </div>
 </div>
 
-<!--
-<form method="post">
-    <div class="form-group">
-        <label>Username
-            <input class="form-control" th:field="${registerFormDTO.username}" />
-        </label>
-        <p class="error" th:errors="${registerFormDTO.username}"></p>
-    </div>
-    <div class="form-group">
-        <label>Password
-            <input class="form-control" th:field="${registerFormDTO.password}" type="password" />
-        </label>
-        <p class="error" th:errors="${registerFormDTO.password}"></p>
-    </div>
-    <div class="form-group">
-        <label>Verify Password
-            <input class="form-control" th:field="${registerFormDTO.verifyPassword}" type="password" />
-        </label>
-    </div>
+<script>
+    document.getElementById("registerClose").onclick = function() {
+        location.href='http://localhost:8080/recipes';
+    }
 
-    <input type="submit" class="btn btn-primary" value="Register" />
-</form>
--->
+    document.getElementById("registerSubmit").onclick = function() {
+        location.href='http://localhost:8080/recipes';
+    }
+</script>
 
 </body>
 </html>

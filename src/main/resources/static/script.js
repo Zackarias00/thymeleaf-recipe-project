@@ -4,4 +4,5 @@ $(document).ready(function() {
     $("#registerButton").hide();
     $("#profileButton").removeClass("hidden");
     $("#createRecipeButton").removeClass("hidden");
+
 });
