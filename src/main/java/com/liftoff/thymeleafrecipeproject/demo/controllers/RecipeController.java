@@ -59,7 +59,7 @@ public class RecipeController {
             return "recipes/create";
         }
         recipeRepository.save(newRecipe);
-        return "redirect:";
+        return "redirect:/recipes";
     }
 
     @GetMapping("detail")
