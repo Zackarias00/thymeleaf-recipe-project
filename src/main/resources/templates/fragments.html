@@ -38,7 +38,6 @@
                     Create Recipe
                 </button>
 
-              <!--  <li class="nav-item"><a class="nav-link" href="/recipes/create">Add Recipe</a></li> -->
             </ul>
 
             <!--TODO make search bar functional-->
@@ -52,7 +51,6 @@
                     </div>
                 </div>
             </form>
-
             <ul class="nav navbar-nav navbar-right">
                 <!-- Login Modal Link -->
                 <li id="loginButton" class="nav-item"><a class="nav-link" href="#login" data-toggle="modal" data-target="#login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
@@ -72,7 +70,7 @@
                 </li>
             </ul>
         </div>
-
+        <!-- Redirects Nav-Buttons to Appropriate Pages  -->
         <script type="text/javascript">
             document.getElementById("createRecipeButton").onclick = function() {
                 location.href='http://localhost:8080/recipes/create';
@@ -86,37 +84,13 @@
                 location.href='http://localhost:8080/register';
             }
         </script>
-
     </nav>
-
  </header>
 
-<div th:fragment="recipe-modal">
-    <div class="modal fade" id="recipeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    ...
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
  <div th:fragment="recipe-card">
-     <div th:each="recipe : ${recipes}" class="col-xs-5 col-md-4">
+     <div th:each="recipe, status : ${recipes}" class="col-xs-5 col-md-4">
          <div class="image_container">
-             <a href="#recipeModal" data-toggle="modal" data-target="#recipeModal" class="thumbnail">
+             <a href="#recipeModal" data-toggle="modal" th:data-target="|#recipeModal${status.index}|" class="thumbnail" >
                 <img class="image" th:src="${recipe.recipeImage}">
                 <div class="caption">
                     <h3 th:text="${recipe.name}"></h3>
@@ -128,6 +102,25 @@
 
              </div>
 
+         </div>
+
+         <div class="modal fade" th:id="|recipeModal${status.index}|" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+             <div class="modal-dialog" role="document">
+                 <div class="modal-content">
+                     <div class="modal-header">
+                         <h1 class="modal-title" id="recipeModalTitle" th:text="${recipe.name}"></h1>
+                         <h5 class="modal-title" id="recipeModalCategory" th:text="'Category: ' + ${recipe.recipeCategory}"></h5>
+                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                             <span aria-hidden="true">&times;</span>
+                         </button>
+                     </div>
+                     <div id="recipeModalBody" class="modal-body">
+                         <h3 th:text="${recipe.getRecipeDescription().getDescription()}"></h3>
+                         <h3 th:text="${recipe.getRecipeIngredients().getIngredients()}"></h3>
+                         <h3 th:text="${recipe.getRecipeDirections().getDirections()}"></h3>
+                     </div>
+                 </div>
+             </div>
          </div>
      </div>
  </div>
