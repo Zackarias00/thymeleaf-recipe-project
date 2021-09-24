@@ -64,7 +64,7 @@
                         <ul class="dropdown-menu">
                             <li class="nav-item"><a class="nav-link" href="/profile">Profile</a></li>
                             <li class="nav-item"><a class="nav-link" href="#">Settings</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#">Logout</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/recipes" id="logoutButton">Logout</a></li>
                         </ul>
                     </div>
                 </li>
@@ -83,6 +83,10 @@
             document.getElementById("registerButton").onclick = function() {
                 location.href='http://localhost:8080/register';
             }
+
+            document.getElementById("logoutButton").onclick = function() {
+                logout();
+            }
         </script>
     </nav>
  </header>
@@ -90,7 +94,7 @@
  <div th:fragment="recipe-card">
      <div th:each="recipe, status : ${recipes}" class="col-xs-5 col-md-4">
          <div class="image_container">
-             <a href="#recipeModal" data-toggle="modal" th:data-target="|#recipeModal${status.index}|" class="thumbnail" >
+             <a href="#recipeModal" data-toggle="modal" th:data-target="|#recipeModal${status.index}|" class="thumbnail">
                 <img class="image" th:src="${recipe.recipeImage}">
                 <div class="caption">
                     <h3 th:text="${recipe.name}"></h3>

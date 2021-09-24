@@ -119,7 +119,7 @@ public class AuthenticationController {
     @GetMapping("")
     public String logout(HttpServletRequest request){
         request.getSession().invalidate();
-        return "";
+        return "redirect:/recipes";
     }
 
 
