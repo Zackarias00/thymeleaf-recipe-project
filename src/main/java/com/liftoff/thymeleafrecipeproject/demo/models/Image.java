@@ -8,26 +8,26 @@ import java.io.Serializable;
 import java.sql.Blob;
 
 @Entity
-public class Image extends AbstractEntity implements Serializable {
+public class Image extends AbstractEntity{
 
 
     @NotNull
-    private byte[] image;
+    private String image;
 
     @OneToOne(mappedBy = "recipeImage")
     private Recipe recipe;
 
-    public Image(@NotNull byte[] image){
+    public Image(@NotNull String image){
         this.image = image;
     }
 
     public Image(){}
 
-    public byte[] getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(byte[] image) {
+    public void setImage(String image) {
         this.image = image;
     }
 }
