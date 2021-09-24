@@ -91,7 +91,7 @@
      <div th:each="recipe, status : ${recipes}" class="col-xs-5 col-md-4">
          <div class="image_container">
              <a href="#recipeModal" data-toggle="modal" th:data-target="|#recipeModal${status.index}|" class="thumbnail" >
-                <img class="image" th:src="${recipe.recipeImage}">
+                <img class="image" th:src="@{${recipe.getRecipeImage().getImage()}}">
                 <div class="caption">
                     <h3 th:text="${recipe.name}"></h3>
                 </div>
@@ -115,6 +115,7 @@
                          </button>
                      </div>
                      <div id="recipeModalBody" class="modal-body">
+                         <img class="image" th:src="@{${recipe.getRecipeImage().getImage()}}">
                          <h3 th:text="${recipe.getRecipeDescription().getDescription()}"></h3>
                          <h3 th:text="${recipe.getRecipeIngredients().getIngredients()}"></h3>
                          <h3 th:text="${recipe.getRecipeDirections().getDirections()}"></h3>
