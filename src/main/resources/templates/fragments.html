@@ -124,8 +124,12 @@
                      <div id="recipeModalBody" class="modal-body">
                          <img class="image" th:src="@{${recipe.getRecipeImage().getImage()}}">
                          <h3 th:text="${recipe.getRecipeDescription().getDescription()}"></h3>
-                         <h3 th:text="${recipe.getRecipeIngredients().getIngredients()}"></h3>
-                         <h3 th:text="${recipe.getRecipeDirections().getDirections()}"></h3>
+                         <ul>
+                            <li th:each="ingredient: ${#strings.listSplit(recipe.getRecipeIngredients().getIngredients(),',')}" th:text="${ingredient}"></li>
+                         </ul>
+                         <ol>
+                            <li th:each="step: ${#strings.listSplit(recipe.getRecipeDirections().getDirections(),',')}" th:text="${step}"></li>
+                         </ol>
                      </div>
                  </div>
              </div>
