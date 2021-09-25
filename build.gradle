@@ -6,7 +6,7 @@ plugins {
 
 group = 'com.liftoff.thymeleaf-recipe-project'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '11'
+sourceCompatibility = '11.0.12'
 
 repositories {
 	mavenCentral()
