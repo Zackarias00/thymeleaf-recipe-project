@@ -40,8 +40,8 @@
 
             </ul>
 
-            <!--TODO make search bar functional-->
-            <form class="navbar-form navbar-left" th:action="@{/recipes/search/results}" method="post">
+            <!--Search Bar-->
+            <form id="searchBar" class="navbar-form navbar-left hidden" th:action="@{/recipes/search/results}" method="post">
                 <div class="input-group">
                     <input type="text" class="form-control" placeholder="Search" name="searchTerm" id="searchTerm">
                     <div class="input-group-btn">
