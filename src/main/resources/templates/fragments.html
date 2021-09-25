@@ -99,10 +99,8 @@
  <div th:fragment="recipe-card">
      <div th:each="recipe, status : ${recipes}" class="col-xs-5 col-md-4">
          <div class="image_container">
-
-
              <a href="#recipeModal" data-toggle="modal" th:data-target="|#recipeModal${status.index}|" class="thumbnail" >
-                <img class="image" th:src="@{${recipe.getRecipeImage().getImage()}}">
+                <img style="width: 400px; height: 350px" class="image" th:src="@{${recipe.getRecipeImage().getImage()}}">
 
                 <div class="caption">
                     <h3 th:text="${recipe.name}"></h3>
@@ -121,17 +119,20 @@
                  <div class="modal-content">
                      <div class="modal-header">
                          <h1 class="modal-title" id="recipeModalTitle" th:text="${recipe.name}"></h1>
-                         <h5 class="modal-title" id="recipeModalCategory" th:text="'Category: ' + ${recipe.recipeCategory}"></h5>
+                         <h4 class="modal-title" id="recipeModalCategory" th:text="'Category: ' + ${recipe.recipeCategory}"></h4>
+                         <br>
+                         <p th:text="${recipe.getRecipeDescription().getDescription()}"></p>
                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                              <span aria-hidden="true">&times;</span>
                          </button>
                      </div>
                      <div id="recipeModalBody" class="modal-body">
-                         <img class="image" th:src="@{${recipe.getRecipeImage().getImage()}}">
-                         <h3 th:text="${recipe.getRecipeDescription().getDescription()}"></h3>
+                         <img style="width: 500px; height: 300px" class="image" th:src="@{${recipe.getRecipeImage().getImage()}}">
+                         <h2>Ingredients</h2>
                          <ul>
                             <li th:each="ingredient: ${#strings.listSplit(recipe.getRecipeIngredients().getIngredients(),',')}" th:text="${ingredient}"></li>
                          </ul>
+                         <h2>Directions</h2>
                          <ol>
                             <li th:each="step: ${#strings.listSplit(recipe.getRecipeDirections().getDirections(),',')}" th:text="${step}"></li>
                          </ol>
