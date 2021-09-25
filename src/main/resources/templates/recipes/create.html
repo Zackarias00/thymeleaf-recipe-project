@@ -10,9 +10,6 @@
     $(document).ready(function(){ $('#create').modal('show'); });
 </script>
 
-<!--TODO make the inputs do what they're supposed to do -->
-
-
 
 <!-- Create Recipe Modal-->
 <div class="modal fade" id="create" tabindex="-1" role="form" aria-hidden="true">
@@ -90,6 +87,12 @@
     document.getElementById("createSubmitButton").onclick = function() {
         location.href='http://localhost:8080/recipes';
     }
+
+   $(document).ready(function(e) {
+        $('#create').on('hidden.bs.modal', function(e) {
+            window.location.href = '/recipes'
+        });
+    });
 
     $("#loginButton").hide();
     $("#registerButton").hide();
