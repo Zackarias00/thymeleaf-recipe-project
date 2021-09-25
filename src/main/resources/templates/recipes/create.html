@@ -53,6 +53,12 @@
                     </div>
 
                     <div class="form-group">
+                        <label>Image URL:<br>
+                            <input th:field="${recipe.recipeImage.image}" class="form-control">
+                        </label>
+                    </div>
+
+                    <div class="form-group">
                         <label>Category:
                             <select th:field="${recipe.recipeCategory}">
                                 <option th:each="recipeCategory : ${categories}"
@@ -62,11 +68,6 @@
 
                             </select>
                             <p class="error" th:errors="${recipe.recipeCategory}"></p>
-                        </label>
-                    </div>
-                    <div class="form-group">
-                        <label>Image URL:<br>
-                            <input th:field="${recipe.recipeImage.image}">
                         </label>
                     </div>
                     <div class="form-group">
