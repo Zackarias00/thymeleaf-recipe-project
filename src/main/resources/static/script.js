@@ -5,4 +5,5 @@ $(document).ready(function() {
     $("#profileButton").removeClass("hidden");
     $("#createRecipeButton").removeClass("hidden");
     $("#logoutButton").removeClass("hidden");
+    $("#searchBar").removeClass("hidden");
 });
