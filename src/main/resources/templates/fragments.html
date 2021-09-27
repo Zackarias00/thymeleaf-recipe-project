@@ -96,6 +96,7 @@
     </nav>
  </header>
 
+<!-- Each Loop Creates a Modal for Each Recipe, Then Populates Each Modal with Info From Database -->
  <div th:fragment="recipe-card">
      <div th:each="recipe, status : ${recipes}" class="col-xs-5 col-md-4">
          <div class="image_container">
