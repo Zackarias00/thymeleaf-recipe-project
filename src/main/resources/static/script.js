@@ -6,4 +6,6 @@ $(document).ready(function() {
     $("#createRecipeButton").removeClass("hidden");
     $("#logoutButton").removeClass("hidden");
     $("#searchBar").removeClass("hidden");
-});
+
+})
+
