@@ -92,6 +92,7 @@
             document.getElementById("logoutButton").onclick = function() {
                 logout();
             }
+
         </script>
     </nav>
  </header>
@@ -102,7 +103,7 @@
          <div class="image_container">
              <a href="#recipeModal" data-toggle="modal" th:data-target="|#recipeModal${status.index}|" class="thumbnail" >
                 <img style="width: 400px; height: 350px" class="image" th:src="@{${recipe.getRecipeImage().getImage()}}">
-
+                 <button th:id="|thumbnailLikeButton${status.index}|" class="btn btn-primary btn-block"><i th:id="|thumbnailLikeButton${status.index}|" class="glyphicon glyphicon-heart-empty"></i></button>
                 <div class="caption">
                     <h3 th:text="${recipe.name}"></h3>
                 </div>
@@ -119,6 +120,7 @@
              <div class="modal-dialog" role="document">
                  <div class="modal-content">
                      <div class="modal-header">
+                         <button th:id="|modalLikeButton${status.index}|" class="btn btn-primary btn-block"><i th:id="|modalLikeButtonIcon${status.index}|" class="glyphicon glyphicon-heart-empty"></i></button>
                          <h1 class="modal-title" id="recipeModalTitle" th:text="${recipe.name}"></h1>
                          <h4 class="modal-title" id="recipeModalCategory" th:text="'Category: ' + ${recipe.recipeCategory}"></h4>
                          <br>
